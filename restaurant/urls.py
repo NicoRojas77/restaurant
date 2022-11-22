@@ -24,6 +24,8 @@ from drf_yasg import openapi
 
 from users.api.router import route_user
 from categories.api.router import router_category
+from products.api.router import router_product
+from supplier.api.router import router_supplier
 
 schema_view = get_schema_view(
    openapi.Info(
@@ -46,6 +48,8 @@ urlpatterns = [
     path('api/', include(route_user.urls)),
 
     path('api/', include(router_category.urls)),
+    path('api/', include(router_product.urls)),
+    path('api/', include(router_supplier.urls)),
     
 ]  
 
