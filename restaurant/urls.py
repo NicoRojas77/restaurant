@@ -26,6 +26,8 @@ from users.api.router import route_user
 from categories.api.router import router_category
 from products.api.router import router_product
 from supplier.api.router import router_supplier
+from tables.api.router import router_table
+from orders.api.router import router_order
 
 schema_view = get_schema_view(
    openapi.Info(
@@ -50,6 +52,8 @@ urlpatterns = [
     path('api/', include(router_category.urls)),
     path('api/', include(router_product.urls)),
     path('api/', include(router_supplier.urls)),
+    path('api/', include(router_table.urls)),
+    path('api/', include(router_order.urls)),
     
 ]  
 
