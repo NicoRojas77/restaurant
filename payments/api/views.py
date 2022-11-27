@@ -3,14 +3,14 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import OrderingFilter
 
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
-from orders.models import Orden
-from orders.api.serializers import OrderSerializer
+from payments.models import Pago
+from payments.api.serializers import PaymentSerializer
 
-class OrderApiViewSet(ModelViewSet):
+class PaymentApiViewSet(ModelViewSet):
     # permission_classes = [IsAuthenticatedOrReadOnly]
-    serializer_class = OrderSerializer
-    queryset = Orden.objects.all()
+    serializer_class = PaymentSerializer
+    queryset = Pago.objects.all()
     filter_backends = [DjangoFilterBackend, OrderingFilter]
-    filterset_fields = ['mesa', 'estado','pago', 'cerrado']
+    filterset_fields = ['mesa', 'estadoPago']
     ordering_fields = '__all__'
 
