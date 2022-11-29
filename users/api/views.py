@@ -1,5 +1,5 @@
 from rest_framework.viewsets import ModelViewSet
-from rest_framework.permissions import IsAdminUser, IsAuthenticated
+from rest_framework.permissions import IsAdminUser, IsAuthenticated, IsAuthenticatedOrReadOnly
 from django.contrib.auth.hashers import make_password
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -8,7 +8,7 @@ from users.models import Usuario
 from users.api.serializers import UserSerializer
 
 class UserApiViewSet(ModelViewSet):
-    permission_classes =[IsAdminUser]
+    permission_classes =[IsAuthenticatedOrReadOnly]
     serializer_class = UserSerializer
     queryset = Usuario.objects.all()
 
@@ -25,7 +25,7 @@ class UserApiViewSet(ModelViewSet):
         return super().update(request, *args, **kwargs)
 
 class UserView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticatedOrReadOnly]
 
     def get(self, request):
         serializer = UserSerializer(request.user)
