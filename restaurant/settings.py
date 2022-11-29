@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'tables',
     'orders',
     'payments',
+    'ingredients',
 ]
 
 MIDDLEWARE = [
@@ -87,12 +88,21 @@ WSGI_APPLICATION = 'restaurant.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# create user c##rest identified by oracle;
+
+# grant connect, resource to c##rest ;
+
+# alter user c##rest  default tablespace users quota unlimited on users;
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+        'ENGINE': 'django.db.backends.oracle',
+        'NAME': '127.0.0.1:1521/orcl',
+        'USER': 'c##rest',
+        'PASSWORD': 'oracle',
+        'HOST': '',
+        'PORT': '',
+    }}
 
 
 # Password validation
