@@ -11,5 +11,5 @@ class Supplier_ordersSerializer(ModelSerializer):
     
     class Meta:
         model = Pedido_proveedor
-        fields = ['id', 'proveedor_data', 'ingrediente_data', 'creado_el', 'cantidad']
+        fields = ['id', 'proveedor_data', 'ingrediente_data', 'cantidad', 'creado_el']
 
