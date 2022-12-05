@@ -4,6 +4,7 @@ from django.db import models
 
 class Ingrediente(models.Model):
     nombre = models.CharField(max_length=150)
+    activo = models.BooleanField(default=False)
 
     def __str__(self):
         return self.nombre

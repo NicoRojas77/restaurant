@@ -30,6 +30,7 @@ from tables.api.router import router_table
 from orders.api.router import router_order
 from payments.api.router import router_payment
 from ingredients.api.router import router_ingredient
+from supplier_orders.api.router import router_supplier_orders
 
 schema_view = get_schema_view(
    openapi.Info(
@@ -58,6 +59,7 @@ urlpatterns = [
     path('api/', include(router_order.urls)),
     path('api/', include(router_payment.urls)),
     path('api/', include(router_ingredient.urls)),
+    path('api/', include(router_supplier_orders.urls)),
     
 ]  
 
